@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-module
   type="WEB"
-  name="bookstore"
-  id="myeclipse.1570429080229"
-  context-root="/bookstore"
+  name="chapter11"
+  id="myeclipse.1569651757736"
+  context-root="/chapter11"
   j2ee-spec="6.0"
-  archive="bookstore.war">
+  archive="chapter11.war">
   <attributes>
     <attribute name="webrootdir" value="WebRoot" />
   </attributes>

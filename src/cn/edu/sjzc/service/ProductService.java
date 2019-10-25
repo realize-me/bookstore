@@ -23,7 +23,9 @@ public class ProductService {
 		pageBean.setPageIndex(pageIndex);
 		pageBean.setPageSize(pageSize);
 		pageBean.setCategory(category);
+		pageBean.setTotalNum(pd.findCountByCategory(category));
 		
 		return pageBean;
 	}
+
 }

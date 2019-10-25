@@ -7,7 +7,15 @@ public class PageBean {
 	private int pageIndex;
 	private int pageSize;
 	private String category;
+	private long totalNum;
 	
+	
+	public long getTotalNum() {
+		return totalNum;
+	}
+	public void setTotalNum(long totalNum) {
+		this.totalNum = totalNum;
+	}
 	
 	public List<Product> getProducts() {
 		return products;

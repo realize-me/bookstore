@@ -100,3 +100,75 @@ CREATE DATABASE itcast_bookstore;
    ```
 
    
+
+**功能使用**
+
+
+
+1. 显示全部商品目录
+
+   进入首页
+
+   http://localhost:8080/bookstore/client/index.jsp 
+
+   然后点击全部商品目录
+
+   
+
+   或者直接在地址栏输入
+
+    http://localhost:8080/bookstore/ShowProductByPage 
+
+2. 显示某一类商品
+
+   进入首页后点击各类别
+
+   或者直接在浏览器地址中输入
+
+    [http://localhost:8080/bookstore/ShowProductByPage?category=%E7%A7%91%E6%8A%80](http://localhost:8080/bookstore/ShowProductByPage?category=科技) 
+
+   category 的参数为中文字符
+
+3. 添加购物车
+
+   在商品展示页面下，某个商品条目上点击   “加入购物车”
+
+   
+
+   或者在浏览器地址栏输入，id后面为商品的 id
+
+    http://localhost:8080/bookstore/AddCartServlet?id=2 
+
+4. 用户注册
+
+   在首页点击 “新账户注册”
+
+   或者直接在浏览器地址输入
+
+    http://localhost:8080/bookstore/client/register.jsp
+
+5. 用户登陆
+
+   在浏览器地址输入
+
+    http://localhost:8080/bookstore/client/login.jsp 
+
+6. 生成账单
+
+   首先登陆，然后添加购物车
+
+   进入购物车后点击结账
+
+   填写收货地址和收件地址和收件人后提交
+
+   订单自动保存到数据库
+
+   
+
+   
+
+   
+
+   
+
+   

@@ -1,6 +1,7 @@
 package cn.edu.sjzc.utils;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
@@ -25,6 +26,27 @@ public class C3P0Utils {
 		}
 		
 		return conn;
+	}
+	
+	public static void close(Connection connection,PreparedStatement preparedStatement){
+		if (connection!=null){
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		if (preparedStatement!=null){
+			try {
+				preparedStatement.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 	}
 	
 	

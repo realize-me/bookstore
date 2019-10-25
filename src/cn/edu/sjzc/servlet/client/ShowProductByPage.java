@@ -2,6 +2,7 @@ package cn.edu.sjzc.servlet.client;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,10 +18,20 @@ public class ShowProductByPage extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		Map<String,String[]> params = request.getParameterMap();
+		String[] c = params.get("category");
+		
+		// 当前要查找的分类,默认为全部商品
+		String category = "全部商品";
+		if (c!=null){
+			category = c[0];
+		}
+		
+		
 		
 		// 定义当前页码，默认页码为1
 		int currentPage = 1;
-		String _currentPage = request.getParameter("curentPage");
+		String _currentPage = request.getParameter("currentPage");
 		
 		if (_currentPage != null){
 			currentPage = Integer.parseInt(_currentPage);
@@ -33,22 +44,20 @@ public class ShowProductByPage extends HttpServlet {
 			currentCount = Integer.parseInt(_currentCount);
 		}
 		
-		// 当前要查找的分类,默认为全部商品
-		String category = "全部商品";
-		String _category = request.getParameter("category");
-		if (_category!=null){
-			category=_category;
-		}
+		
 		
 		// 调用service获取，查询当前页面所需要的书籍
 		ProductService ps = new ProductService();
 		PageBean pageBean = ps.findProductByPage(currentPage, currentCount, category);
 		
+
+		
+		
 		// 设置request的attribute
 		request.setAttribute("pageBean", pageBean);
 		
 		// 转到分页后的商品列表页面
-		RequestDispatcher rd = request.getRequestDispatcher("/client/product_list.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/client/product_list_test2.jsp");
 		rd.forward(request, response);
 	}
 

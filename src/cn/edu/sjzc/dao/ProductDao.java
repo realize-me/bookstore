@@ -1,5 +1,8 @@
 package cn.edu.sjzc.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -51,6 +54,7 @@ public class ProductDao {
 				
 				try {
 					products = (List<Product>)qr.query(sql, params, new BeanListHandler(Product.class));
+					System.out.println("1111111111");
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -72,5 +76,52 @@ public class ProductDao {
 
 		
 		return products;
+	}
+	/**
+	 * 查询一个商品类下面，有多少种商品
+	 * @param category
+	 * @return 
+	 */
+	public long findCountByCategory(String category){
+		
+		long count=0;
+		if (category.equals("全部商品")){
+			String sql = "select count(*) from products";
+			Connection conn = C3P0Utils.getConnection();
+			try {
+				PreparedStatement preStat = conn.prepareStatement(sql);
+				ResultSet rs = preStat.executeQuery();
+				
+				while (rs.next()){
+					count = rs.getLong(1);
+				};
+			
+				C3P0Utils.close(conn, preStat);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}else{
+			String sql = "select count(*) from products where category=?";
+			Connection conn = C3P0Utils.getConnection();
+			try {
+				PreparedStatement preStat = conn.prepareStatement(sql);
+				preStat.setString(1, category);
+				ResultSet rs = preStat.executeQuery();
+				
+				while (rs.next()){
+					count = rs.getLong(1);
+				};
+				C3P0Utils.close(conn, preStat);
+			
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+
+		return count;
 	}
 }

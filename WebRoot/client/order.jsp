@@ -59,7 +59,7 @@
 														<td width="10%">${vs.count}</td>
 														<td width="40%">${entry.key.name}</td>
 														<td width="10%">${entry.key.price}</td>
-														<td width="10%">${entry.key.categroy}</td>
+														<td width="10%">${entry.key.category}</td>
 														<td width="10%"><input type="text" value="${entry.value}" style="width: 20%;"></td>
 														<td width="10%">${entry.key.price*entry.value}</td>
 													</tr>

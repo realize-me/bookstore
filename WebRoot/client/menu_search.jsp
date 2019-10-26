@@ -18,15 +18,26 @@
 		<a href="${pageContext.request.contextPath}/ShowProductByPage?category=生活百科">生活百科</a>
 		<a href="${pageContext.request.contextPath}/ShowProductByPage" style="color: #FFFF00">全部商品目录</a>
 	</div>
+	
+	<script type="text/javascript">
+		function search(){
+			    if (textfield.value == "请输入书名" || textfield.value==null || textfield.value==""){
+			        window.alert("请输入书名");
+			    }else{
+			        searchform.submit();
+			    }
+		}	
+	</script>
+	
 	<!-- 传智书城搜索栏 -->
 	<div id="divsearch">
-		<form id="searchfrom" action="#">
+		<form id="searchform" action="/bookstore/MenuSearchServlet" method="post">
 			<table width="100%">
 				<tr>
 					<td style="text-align: right; padding-right: 220px;">
 						Search
-						<input type="text" name="textfield" class="inputtable" id="textfield" value="请输入书名" />
-						<a href="#"><img src="/bookstore/client/images/serchbutton.gif" style="border: 0px;margin-top: -4px;" /></a>
+						<input type="text" name="textfield" class="inputtable" id="textfield" value="请输入书名" onfocus="this.select();"/>
+						<a href="#"><img src="/bookstore/client/images/serchbutton.gif" onclick="search();" style="border: 0px;margin-top: -4px;" /></a>
 					</td>
 				</tr>
 			</table>

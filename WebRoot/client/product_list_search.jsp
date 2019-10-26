@@ -1,4 +1,4 @@
-<%@page import="cn.edu.sjzc.domin.PageBean"%>
+<%@page import="cn.edu.sjzc.domin.SearchPageBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -18,12 +18,11 @@
 		if ( isNaN(parseInt(pageIndex)) || parseInt(pageIndex)>parseInt(maxIndex.value) || parseInt(pageIndex)<1){
 			window.alert("页码不正确");
 		}else{
-			category = category.value;	
+			textfield = bookname.value;	
 			pageSize = pageSize.value;
 
-			window.location.href = "http://localhost:8080/bookstore/ShowProductByPage?currentPage="+pageIndex+"&category="+category+"&currentCount="+pageSize;	
+			window.location.href = "http://localhost:8080/bookstore/MenuSearchServlet?currentPage="+pageIndex+"&textfield="+textfield+"&currentCount="+pageSize;	
 		}
-		
 	}
 
 </script>
@@ -35,9 +34,9 @@
 <%@ include file="menu_search.jsp" %>
 <div align="center">
 <%
-	PageBean pageBean = (PageBean)request.getAttribute("pageBean");
-	long totalNum = pageBean.getTotalNum();
-	long pageSize = pageBean.getPageSize();
+	SearchPageBean searchPageBean = (SearchPageBean)request.getAttribute("searchPageBean");
+	long totalNum = searchPageBean.getTotalNum();
+	long pageSize = searchPageBean.getPageSize();
 	
 	
 	long max_current = totalNum/pageSize;
@@ -47,8 +46,8 @@
 	}
 	
 	
-	long pageIndex = pageBean.getPageIndex();
-	String category = pageBean.getCategory();
+	long pageIndex = searchPageBean.getPageIndex();
+	String textfield = searchPageBean.getName();
 	
  %>
 
@@ -64,7 +63,7 @@
 
 									
 								
-									<c:forEach items="${pageBean.products}" var="product">
+									<c:forEach items="${searchPageBean.products}" var="product">
 
 											<table align="center">
 												<tr>
@@ -106,7 +105,7 @@
 										<input type="hidden" id="pageIndex" value="<%= pageIndex %>" />
 										<input type="hidden" id="pageSize" value="<%= pageSize %>" />
 										<input type="hidden" id="maxIndex" value="<%= max_current %>" />
-										<input type="hidden" id="category" value="<%= category %>" />
+										<input type="hidden" id="bookname" value="<%= textfield %>" />
 									</div>
 
 
@@ -116,11 +115,11 @@
 										<c:when test="<%=totalNum>0 %>">
 											<div align="center">
 												<!-- 上一页 -->
-												<a href="/bookstore/ShowProductByPage?currentPage=<%=pageIndex==1?1:pageIndex-1 %>&category=<%=category!=null?category:""%>">上一页</a>
+												<a href="/bookstore/MenuSearchServlet?currentPage=<%=pageIndex==1?1:pageIndex-1 %>&textfield=<%=textfield!=null?textfield:""%>">上一页</a>
 												
 												<!-- 第1页 -->
 												<c:if test="<%=pageIndex!=1 %>">
-													<a href="/bookstore/ShowProductByPage?currentPage=1&category=<%=category!=null?category:""%>">1</a>
+													<a href="/bookstore/MenuSearchServlet?currentPage=1&textfield=<%=textfield!=null?textfield:""%>">1</a>
 												</c:if>
 												
 		
@@ -129,14 +128,16 @@
 												
 												<!-- 尾页 -->
 												<c:if test="<%=pageIndex!=max_current %>">
-													<a href="/bookstore/ShowProductByPage?currentPage=<%=max_current %>&category=<%=category!=null?category:""%>"><%=max_current %></a>
+													<a href="/bookstore/MenuSearchServlet?currentPage=<%=max_current %>&textfield=<%=textfield!=null?textfield:""%>"><%=max_current %></a>
 												</c:if>
 												
 												<!-- 下一页 -->
-												<a href="/bookstore/ShowProductByPage?currentPage=<%=pageIndex==max_current?max_current:pageIndex+1 %>&category=<%=category!=null?category:""%>">下一页</a>
+												<a href="/bookstore/MenuSearchServlet?currentPage=<%=pageIndex==max_current?max_current:pageIndex+1 %>&textfield=<%=textfield!=null?textfield:""%>">下一页</a>
 												
-												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;到<input type="text" id="goToPageIndex" style="width: 20px;"/>页，
-
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;到
+													<input type="text" id="goToPageIndex" style="width: 20px"/>	
+												页，
+												<!--添加回车事件监听器-->
 												<script type="text/javascript">
 													goToPageIndex.addEventListener(
 													    "keydown",
@@ -148,11 +149,11 @@
 													);
 
 												</script>
-												
 		
 												<button onclick="jumpPage();">确定</button>
 												
 												<p>共查到<%=totalNum %>条数据，共<%=max_current %>页</p>
+												<p>您搜索的关键字为<font color="red"><%=textfield%></font></p>
 												
 											</div>
 										
@@ -160,6 +161,7 @@
 										<c:otherwise>
 											<div align="center">
 												<p>这里空空如也</p>
+												<p>您搜索的关键字为<font color="red"><%=textfield%></font></p>
 											</div>
 										</c:otherwise>
 									</c:choose>

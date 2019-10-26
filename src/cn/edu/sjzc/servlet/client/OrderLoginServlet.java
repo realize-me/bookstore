@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import cn.edu.sjzc.domin.User;
 import cn.edu.sjzc.service.UserService;
 
-public class LoginServlet extends HttpServlet {
+public class OrderLoginServlet extends HttpServlet {
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 		hs.setAttribute("user", user);
 
 
-		RequestDispatcher rd = request.getRequestDispatcher("/client/login_success.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/client/order.jsp");
 		rd.forward(request, response);
 		return;
 		

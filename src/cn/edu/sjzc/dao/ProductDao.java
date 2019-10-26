@@ -54,7 +54,6 @@ public class ProductDao {
 				
 				try {
 					products = (List<Product>)qr.query(sql, params, new BeanListHandler(Product.class));
-					System.out.println("1111111111");
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -123,5 +122,52 @@ public class ProductDao {
 		}
 
 		return count;
+	}
+	/**
+	 * 根据商品名称迷糊查询，加分页查询
+	 * @return product的list列表
+	 */
+	public List<Product> findProductByName(int pageIndex,int pageSize,String name){
+		String sql = "select * from products where name like ? limit ?,?";
+		Object[] params = {
+				"%"+name+"%",
+				(pageIndex-1)*pageSize,
+				pageSize,
+		};
+		
+		QueryRunner qr = new QueryRunner(C3P0Utils.dataSource);
+		List<Product> products= null;
+		try {
+			products = qr.query(sql, params, new BeanListHandler(Product.class));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return products;
+	}
+	
+	public long findProductNumberByName(String name){
+		String sql = "select count(*) from products where name like ?";
+		Connection conn = C3P0Utils.getConnection();
+		
+		long count = 0;
+		try {
+			PreparedStatement preStat = conn.prepareStatement(sql);
+			preStat.setString(1, "%"+name+"%");
+			ResultSet rs = preStat.executeQuery();
+			
+			while (rs.next()){
+				count = rs.getLong(1);
+			}
+			
+			C3P0Utils.close(conn, preStat);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		return count;
+		
 	}
 }

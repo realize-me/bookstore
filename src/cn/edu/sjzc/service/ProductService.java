@@ -5,6 +5,7 @@ import java.util.List;
 import cn.edu.sjzc.dao.ProductDao;
 import cn.edu.sjzc.domin.PageBean;
 import cn.edu.sjzc.domin.Product;
+import cn.edu.sjzc.domin.SearchPageBean;
 
 public class ProductService {
 	public Product findProductById(int id){
@@ -26,6 +27,21 @@ public class ProductService {
 		pageBean.setTotalNum(pd.findCountByCategory(category));
 		
 		return pageBean;
+	}
+	
+	public SearchPageBean findProductByName(int pageIndex,int pageSize,String name){
+		
+		ProductDao pd = new ProductDao();
+		List<Product> products = pd.findProductByName(pageIndex, pageSize, name);
+		
+		SearchPageBean spb = new SearchPageBean();
+		spb.setProducts(products);
+		spb.setPageIndex(pageIndex);
+		spb.setPageSize(pageSize);
+		spb.setName(name);
+		spb.setTotalNum(pd.findProductNumberByName(name));
+		
+		return spb;
 	}
 
 }

@@ -167,7 +167,7 @@ CREATE DATABASE itcast_bookstore;
 
 **后台：**
 
-​		**准备工作：**在tomcat项目目录以外的地方新建一个目录A，然后修改 tomcat 中 conf 目录下的 server.xml文件
+**准备工作**：在tomcat项目目录以外的地方新建一个目录A，然后修改 tomcat 中 conf 目录下的 server.xml文件
 
 ```xml
 <!--在Host标签之间加入以下代码-->
@@ -178,7 +178,7 @@ CREATE DATABASE itcast_bookstore;
 
 
 
-​		**商品管理**
+**商品管理**
 
 1. 商品的增加
 

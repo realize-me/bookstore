@@ -10,6 +10,7 @@
 
 </head>
 <body>
+	<div style="width: 1500px;margin:0 auto;">
 <!-- 传智书城顶部 -->
 <%@ include file="head.jsp" %>
 	<!-- 传智书城菜单栏 -->
@@ -55,6 +56,7 @@
 			<div style="clear:both"></div>
 </div>
 <div style="clear:both"></div>
+</div>
 </div>
 </body>
 </html>

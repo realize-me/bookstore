@@ -8,6 +8,7 @@
 	<script type="text/javascript" src="js/autoplay.js"></script>
 </head>
 <body class="main">
+<div style="width: 1500px;margin:0 auto;">
 <!-- 传智书城顶部 -->
 <%@ include file="head.jsp" %>
 	<!-- 传智书城菜单栏 -->
@@ -79,7 +80,9 @@
 		</tr>	
 		</table>
 	</div>
+
 	<!-- 传智书城底部 -->
 <%@ include file="foot.jsp" %>
+</div>
 </body>
 </html>

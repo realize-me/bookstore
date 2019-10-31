@@ -1,15 +1,10 @@
-<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>传智书城用户注册</title>
-	<link rel="stylesheet" type="text/css" href="/bookstore/client/css/main.css">
-	<script type="text/javascript" src="/bookstore/client/js/form.js"></script>
-	<style type="text/css">
-		span{
-			color: red;
-		}
-	</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>我的账户</title>
 </head>
 <body>
 	<div style="width: 1500px;margin:0 auto;">
@@ -17,13 +12,13 @@
 <%@ include file="head.jsp" %>
 	<!-- 传智书城菜单栏 -->
 <%@ include file="menu_search.jsp" %>
- <!-- 用户注册 -->
+ <!-- 我的账户 -->
  <div id="divcontent" align="center">
- 	<form action="/bookstore/RegisterServlet" method="post">
+ 	
  		<table width="850px" border="0" cellspacing="0">
  			<tr>
  				<td style="padding:30px;">
- 					<h1>新会员注册</h1>
+ 					<h1>我的账户</h1>
  					<table width="70%" border="0" cellspacing="2" class="upline">
  						<tr>
  							<td style="text-align: right; width: 20%">会员邮箱：</td>
@@ -88,7 +83,7 @@
  				</td>
  			</tr>
  		</table>
- 	</form>
+
  </div>
 </div>
 </body>

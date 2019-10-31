@@ -33,6 +33,7 @@
 </script>
 </head>
 <body>
+<div style="width: 1500px;margin:0 auto;">
 <%@ include file="head.jsp" %>
 <%@ include file="menu_search.jsp" %>
 
@@ -86,7 +87,7 @@
 															<td width="10%">${entry.key.price}</td>
 															<td width="20%">
 																<!-- 减少商品数量 -->
-																<input type="button" value="-" style="width: 20%" onclick="ChangeProductNum(${entry.key.id},${entry.value}-1,${entry.key.pnum });"/>
+																<input type="button" value="-" style="width: 20%" onclick="ChangeProductNum('${entry.key.id}',${entry.value}-1,${entry.key.pnum });" />
 																<!-- 商品数量显示 -->
 																<input type="text" name="text" id="product_num_${entry.key.id}" value="${entry.value}" style="width: 20%">
 																<!--隐藏的数量，如果输入数量错误，则用隐藏变量使其恢复-->
@@ -94,7 +95,7 @@
 
 
 																<!-- 商品数量增加 -->
-																<input type="button" value="+" style="width: 20%" onclick="ChangeProductNum(${entry.key.id},${entry.value+1},${entry.key.pnum });">
+																<input type="button" value="+" style="width: 20%" onclick="ChangeProductNum('${entry.key.id}',${entry.value+1},${entry.key.pnum });" />
 															
 																
 																
@@ -181,6 +182,7 @@
 			</td>
 		</tr>
 	</table>
+</div>
 </div>
 </body>
 </html>

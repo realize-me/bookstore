@@ -1,6 +1,10 @@
 package cn.edu.sjzc.service;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import cn.edu.sjzc.dao.ProductDao;
 import cn.edu.sjzc.domin.PageBean;
@@ -8,7 +12,7 @@ import cn.edu.sjzc.domin.Product;
 import cn.edu.sjzc.domin.SearchPageBean;
 
 public class ProductService {
-	public Product findProductById(int id){
+	public Product findProductById(String id){
 		ProductDao pd = new ProductDao();
 		
 		return pd.findProductById(id);
@@ -43,5 +47,30 @@ public class ProductService {
 		
 		return spb;
 	}
-
+	
+	public List<Product> findProductAll(){
+		ProductDao pd = new ProductDao();
+		
+		return pd.findProductAll();
+	}
+	
+	public List<Product> findProductByCondition(String id,String name,String category,String minprice,String maxprice){
+		ProductDao pd = new ProductDao();
+		return pd.findProductByCondition(id, name, category, minprice, maxprice);
+	}
+	
+	public void addProduct(Product p){
+		ProductDao pd = new ProductDao();
+		pd.insertProduct(p);
+	}
+	// 根据id值更新product
+	public void editProduct(Product p){
+		ProductDao pd = new ProductDao();
+		pd.updateProduct(p);
+	}
+	// 根据id删除product
+	public void deleteProduct(String id){
+		ProductDao pd = new ProductDao();
+		pd.deleteProductById(id);
+	}
 }

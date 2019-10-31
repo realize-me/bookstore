@@ -33,7 +33,7 @@ public class ChangeCartServlet extends HttpServlet {
 		
 		// 根据id获取这个商品
 		ProductService ps = new ProductService();
-		Product product = ps.findProductById(Integer.parseInt(id));
+		Product product = ps.findProductById(id);
 		
 		if (cart!=null){
 			// count不为0       说明要重新设置商品的数量

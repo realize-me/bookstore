@@ -80,6 +80,50 @@
     <servlet-name>MenuSearchServlet</servlet-name>
     <servlet-class>cn.edu.sjzc.servlet.client.MenuSearchServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ProductListServlet</servlet-name>
+    <servlet-class>cn.edu.sjzc.servlet.manager.ProductListServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FindProductByCondition</servlet-name>
+    <servlet-class>cn.edu.sjzc.servlet.manager.FindProductByCondition</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AddProductServlet</servlet-name>
+    <servlet-class>cn.edu.sjzc.servlet.manager.AddProductServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FindProductById</servlet-name>
+    <servlet-class>cn.edu.sjzc.servlet.client.FindProductById</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>EditProductServlet</servlet-name>
+    <servlet-class>cn.edu.sjzc.servlet.manager.EditProductServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DeleteProductServlet</servlet-name>
+    <servlet-class>cn.edu.sjzc.servlet.manager.DeleteProductServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
 
 
 
@@ -122,5 +166,30 @@
     <servlet-name>MenuSearchServlet</servlet-name>
     <url-pattern>/MenuSearchServlet</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ProductListServlet</servlet-name>
+    <url-pattern>/ProductListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FindProductByCondition</servlet-name>
+    <url-pattern>/FindProductByCondition</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddProductServlet</servlet-name>
+    <url-pattern>/AddProductServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FindProductById</servlet-name>
+    <url-pattern>/FindProductById</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EditProductServlet</servlet-name>
+    <url-pattern>/EditProductServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteProductServlet</servlet-name>
+    <url-pattern>/DeleteProductServlet</url-pattern>
+  </servlet-mapping>
+
 
 </web-app>

@@ -21,7 +21,7 @@
 			textfield = bookname.value;	
 			pageSize = pageSize.value;
 
-			window.location.href = "http://localhost:8080/bookstore/MenuSearchServlet?currentPage="+pageIndex+"&textfield="+textfield+"&currentCount="+pageSize;	
+			window.location.href = "/bookstore/MenuSearchServlet?currentPage="+pageIndex+"&textfield="+textfield+"&currentCount="+pageSize;	
 		}
 	}
 
@@ -30,6 +30,7 @@
 
 </head>
 <body>
+	<div style="width: 1500px;margin:0 auto;">
 <%@ include file="head.jsp" %>
 <%@ include file="menu_search.jsp" %>
 <div align="center">
@@ -68,7 +69,7 @@
 											<table align="center">
 												<tr>
 													<td rowspan="7">
-														<img src="/bookstore/client/bookcover/101.jpg" />
+														<img src="${product.imgurl }" />
 													</td>
 												</tr>
 												<tr>
@@ -179,5 +180,6 @@
 </div>
 
 <%@ include file="foot.jsp" %>
+</div>
 </body>
 </html>

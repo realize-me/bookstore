@@ -1,7 +1,7 @@
 # bookstore
 传智书城 Java Web项目练习
 
-**数据库创建**
+### **数据库创建**
 
 数据库名称 itcast_bookstore
 
@@ -101,9 +101,9 @@ CREATE DATABASE itcast_bookstore;
 
    
 
-**功能使用**
+### **功能使用**
 
-
+**前台**：
 
 1. 显示全部商品目录
 
@@ -165,10 +165,47 @@ CREATE DATABASE itcast_bookstore;
 
    
 
-   
+**后台：**
 
-   
+​		**准备工作：**在tomcat项目目录以外的地方新建一个目录A，然后修改 tomcat 中 conf 目录下的 server.xml文件
 
-   
+```xml
+<!--在Host标签之间加入以下代码-->
+<Context path="/TempFolder" docBase="目录A的绝对地址"></Context>
+```
 
-   
+目录A用来存放商品的图片。
+
+
+
+​		**商品管理**
+
+1. 商品的增加
+
+    http://localhost:8080/bookstore/manager/product_add.jsp 
+
+2. 显示商品列表
+
+    http://localhost:8080/bookstore/ProductListServlet 
+
+3. 修改商品
+
+   先进入商品列表，然后点击 编辑
+
+   或者直接访问：
+
+    http://localhost:8080/bookstore/FindProductById?id=5d3bd27b-aaf7-49f0-97ce-9c244ded8b1e&type=admin 
+
+   id=商品的id编号
+
+   type=admin，表示从后台访问
+
+4. 删除商品
+
+   先进入商品列表，然后点击  删除
+
+   或者直接访问：
+
+    http://localhost:8080/bookstore/DeleteProductServlet?id=c95212da-d9fc-4dae-ad51-9061868e2ffb 
+
+   id=商品的id编号

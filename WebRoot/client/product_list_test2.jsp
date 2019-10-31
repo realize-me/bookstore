@@ -21,7 +21,7 @@
 			category = category.value;	
 			pageSize = pageSize.value;
 
-			window.location.href = "http://localhost:8080/bookstore/ShowProductByPage?currentPage="+pageIndex+"&category="+category+"&currentCount="+pageSize;	
+			window.location.href = "/bookstore/ShowProductByPage?currentPage="+pageIndex+"&category="+category+"&currentCount="+pageSize;	
 		}
 		
 	}
@@ -31,6 +31,7 @@
 
 </head>
 <body>
+	<div style="width: 1500px;margin:0 auto;">
 <%@ include file="head.jsp" %>
 <%@ include file="menu_search.jsp" %>
 <div align="center">
@@ -69,7 +70,7 @@
 											<table align="center">
 												<tr>
 													<td rowspan="7">
-														<img src="/bookstore/client/bookcover/101.jpg" />
+														<img src="${product.imgurl}" width="500"/>
 													</td>
 												</tr>
 												<tr>
@@ -177,5 +178,6 @@
 </div>
 
 <%@ include file="foot.jsp" %>
+</div>
 </body>
 </html>

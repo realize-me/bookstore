@@ -58,6 +58,10 @@ public class UserDao {
 
 			rs.next();
 			int num = rs.getInt(1);
+			
+			// 关闭连接
+			C3P0Utils.close(conn, prestat);
+			
 			if (num>0){
 				return true;
 			}

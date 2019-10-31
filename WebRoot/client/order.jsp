@@ -11,6 +11,7 @@
 <script type="text/javascript" src="/bookstore/client/js/order.js"></script>
 </head>
 <body>
+	<div style="width: 1500px;margin:0 auto;">
 <%@ include file="head.jsp" %>
 <%@ include file="menu_search.jsp" %>
 <!-- 订单部分 -->
@@ -121,6 +122,7 @@
 			</td>
 		</tr>
 	</table>
+</div>
 </div>
 </body>
 </html>

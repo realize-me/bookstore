@@ -21,25 +21,42 @@
 	
 	<script type="text/javascript">
 		function search(){
-			    if (textfield.value == "请输入书名" || textfield.value==null || textfield.value==""){
+			    if (textfield.value == "请输入书名" || textfield.value==null || textfield.value.trim()==""){
 			        window.alert("请输入书名");
 			    }else{
 			        searchform.submit();
 			    }
-		}	
+		}
+
+
+
 	</script>
-	
 	<!-- 传智书城搜索栏 -->
 	<div id="divsearch">
-		<form id="searchform" action="/bookstore/MenuSearchServlet" method="post">
+		<form id="searchform" action="/bookstore/MenuSearchServlet" method="post" onkeypress="return event.keyCode!=13">
 			<table width="100%">
 				<tr>
 					<td style="text-align: right; padding-right: 220px;">
 						Search
-						<input type="text" name="textfield" class="inputtable" id="textfield" value="请输入书名" onfocus="this.select();"/>
+						<input type="text" name="textfield" class="inputtable" id="textfield" value="请输入书名" onfocus="this.select();" />
 						<a href="#"><img src="/bookstore/client/images/serchbutton.gif" onclick="search();" style="border: 0px;margin-top: -4px;" /></a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button type="button" style="display: none;"></button>
 					</td>
 				</tr>
 			</table>
 		</form>
 	</div>
+	<script type="text/javascript">
+		var text_input = document.getElementById('textfield').addEventListener("keydown",function(event){
+			if (event.keyCode=='13'){
+				search();
+			}
+		});
+			
+	
+
+	</script>

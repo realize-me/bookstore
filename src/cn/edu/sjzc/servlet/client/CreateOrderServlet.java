@@ -59,7 +59,9 @@ public class CreateOrderServlet extends HttpServlet {
 		// 设置订单中的商品信息（商品的编号，商品的数量）
 		List<OrderItem> orderItems = new ArrayList<OrderItem>();
 		for(Product p:cart.keySet()){
+			
 			OrderItem orderItem = new OrderItem();
+			orderItem.setOrder_id(order.getId());
 			orderItem.setProduct_id(p.getId());
 			orderItem.setBuynum(cart.get(p));
 			

@@ -116,6 +116,56 @@
     <servlet-name>DeleteProductServlet</servlet-name>
     <servlet-class>cn.edu.sjzc.servlet.manager.DeleteProductServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>OrderListServlet</servlet-name>
+    <servlet-class>cn.edu.sjzc.servlet.manager.OrderListServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FindOrderByCondition</servlet-name>
+    <servlet-class>cn.edu.sjzc.servlet.manager.FindOrderByCondition</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FindOrderByIdServlet</servlet-name>
+    <servlet-class>cn.edu.sjzc.servlet.manager.FindOrderByIdServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DeleteOrderServlet</servlet-name>
+    <servlet-class>cn.edu.sjzc.servlet.manager.DeleteOrderServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetAnnounce</servlet-name>
+    <servlet-class>cn.edu.sjzc.servlet.client.GetAnnounce</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddNoticeServlet</servlet-name>
+  	<servlet-class>cn.edu.sjzc.servlet.manager.AddNoticeServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>FindNoticeServlet</servlet-name>
+  	<servlet-class>cn.edu.sjzc.servlet.manager.FindNoticeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ModifyNoticeServlet</servlet-name>
+    <servlet-class>cn.edu.sjzc.servlet.manager.ModifyNoticeServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
 
 
 
@@ -189,6 +239,38 @@
   <servlet-mapping>
     <servlet-name>DeleteProductServlet</servlet-name>
     <url-pattern>/DeleteProductServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OrderListServlet</servlet-name>
+    <url-pattern>/OrderListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FindOrderByCondition</servlet-name>
+    <url-pattern>/FindOrderByCondition</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FindOrderByIdServlet</servlet-name>
+    <url-pattern>/FindOrderByIdServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteOrderServlet</servlet-name>
+    <url-pattern>/DeleteOrderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetAnnounce</servlet-name>
+    <url-pattern>/GetAnnounce</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddNoticeServlet</servlet-name>
+  	<url-pattern>/AddNoticeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>FindNoticeServlet</servlet-name>
+  	<url-pattern>/FindNoticeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModifyNoticeServlet</servlet-name>
+    <url-pattern>/ModifyNoticeServlet</url-pattern>
   </servlet-mapping>
 
 

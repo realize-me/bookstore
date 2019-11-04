@@ -79,10 +79,10 @@ CREATE DATABASE itcast_bookstore;
      `product_id` varchar(100) NOT NULL,
      `buynum` int(11) DEFAULT NULL,
      PRIMARY KEY (`order_id`,`product_id`),
-     KEY `product_id` (`product_id`),
-     CONSTRAINT `orderitem_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
-     CONSTRAINT `orderitem_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
-   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+     KEY `orderitem_ibfk_2` (`product_id`),
+     CONSTRAINT `orderitem_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE,
+     CONSTRAINT `orderitem_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE
+   ) ENGINE=InnoDB DEFAULT CHARSET=utf8
    ```
 
    
@@ -103,7 +103,11 @@ CREATE DATABASE itcast_bookstore;
 
 ### **功能使用**
 
-**前台**：
+**1.前台使用**：
+
+直接进入: http://localhost:8080/bookstore/client/ 
+
+**详细使用**：
 
 1. 显示全部商品目录
 
@@ -165,18 +169,18 @@ CREATE DATABASE itcast_bookstore;
 
    
 
-**后台：**
-
-**准备工作**：在tomcat项目目录以外的地方新建一个目录A，然后修改 tomcat 中 conf 目录下的 server.xml文件
+**后台准备工作**：在tomcat项目目录以外的地方新建一个目录A，然后修改 tomcat 中 conf 目录下的 server.xml文件
 
 ```xml
 <!--在Host标签之间加入以下代码-->
-<Context path="/TempFolder" docBase="目录A的绝对地址"></Context>
+<Context path="/TempFolder" docBase="目录A在本机上的绝对地址"></Context>
 ```
 
 目录A用来存放商品的图片。
 
+**2.后台管理**：
 
+直接进入 : http://localhost:8080/bookstore/manager/ 
 
 **商品管理**
 
@@ -209,3 +213,19 @@ CREATE DATABASE itcast_bookstore;
     http://localhost:8080/bookstore/DeleteProductServlet?id=c95212da-d9fc-4dae-ad51-9061868e2ffb 
 
    id=商品的id编号
+
+**订单管理**：
+
+注意：数据库 orderitem 表修改了一下，设置外码为级联删除
+
+1. 查询所有订单，并显示订单列表
+2. 根据用户id查询订单，并显示订单列表
+3. 查看订单详细
+4. 删除订单
+
+**公告管理**：
+
+1. 发布公告
+2. 修改当前公告
+3. 显示历史公告
+

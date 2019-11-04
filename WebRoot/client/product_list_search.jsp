@@ -1,6 +1,6 @@
-<%@page import="cn.edu.sjzc.domin.SearchPageBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="cn.edu.sjzc.domin.SearchPageBean"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="pg" uri="http://jsptags.com/tags/navigation/pager" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -69,7 +69,7 @@
 											<table align="center">
 												<tr>
 													<td rowspan="7">
-														<img src="${product.imgurl }" />
+														<img src="${product.imgurl }" width="500"/>
 													</td>
 												</tr>
 												<tr>

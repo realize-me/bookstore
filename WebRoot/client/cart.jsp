@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>传智书城购物车</title>
 <link rel="stylesheet" type="text/css" href="/bookstore/client/css/main.css">
 <script type="text/javascript">
 			// 增加某个商品的数量

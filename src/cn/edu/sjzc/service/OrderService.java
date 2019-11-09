@@ -34,9 +34,9 @@ public class OrderService {
 	 * @param id the id of user
 	 * @return a list contains OrderUserBeans
 	 */
-	public List<OrderBean> findOrderByCondition(int id){
+	public List<OrderBean> findOrderByCondition(String username){
 		OrderDao od = new OrderDao();
-		return od.findOrderByCondition(id);
+		return od.findOrderByCondition(username);
 	}
 	
 	public OrderBean findOrderBeanById(String id){
@@ -59,6 +59,16 @@ public class OrderService {
 	public void deleteOrderById(String id) {
 		OrderDao od = new OrderDao();
 		od.deleteOrderById(id);
+	}
+	
+	public List<Order> findOrderByUserId(int id){
+		OrderDao od = new OrderDao();
+		return od.findOrderByUserId(id);
+	}
+	
+	public void confirmOrder(String id){
+		OrderDao od = new OrderDao();
+		od.confirmOrder(id);
 	}
 	
 }

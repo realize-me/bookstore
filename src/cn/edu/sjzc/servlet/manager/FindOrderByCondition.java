@@ -20,14 +20,14 @@ public class FindOrderByCondition extends HttpServlet {
  */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-			// 用户id 
-			String id = request.getParameter("id");
+			// 用户名 
+			String username = request.getParameter("username");
 			OrderService os = new OrderService();
 			
 			
-			if (id !=null && !id.trim().equals("")){
+			if (username !=null && !username.trim().equals("")){
 				
-				List<OrderBean> orders = os.findOrderByCondition(Integer.parseInt(id));
+				List<OrderBean> orders = os.findOrderByCondition(username);
 				request.setAttribute("orders", orders);
 				RequestDispatcher rd = request.getRequestDispatcher("/manager/order_list.jsp");
 				rd.forward(request, response);

@@ -99,13 +99,13 @@ public class OrderDao {
 	
 	
 	
-	public List<OrderBean> findOrderByCondition(int id){
-		String sql = "select orders.*,user.* from orders,user where orders.user_id = user.id and user.id=?";
+	public List<OrderBean> findOrderByCondition(String username){
+		String sql = "select orders.*,user.* from orders,user where orders.user_id = user.id and user.username=?";
 		QueryRunner qr = new QueryRunner(C3P0Utils.dataSource);
 		
 		List<OrderBean> orders = null;
 		Object[] params = {
-				id
+				username
 		};
 		
 		try {
@@ -248,6 +248,31 @@ public class OrderDao {
 		
 	}
 	
+	public List<Order> findOrderByUserId (int id){
+		String sql = "select * from orders where user_id = ? order by orderTime desc";
+		
+		QueryRunner qr = new QueryRunner(C3P0Utils.dataSource);
+		
+		List<Order> orders = null;
+		try {
+			orders = qr.query(sql, id, new BeanListHandler(Order.class));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return orders;
+	}
 	
+	public void confirmOrder(String id){
+		String sql = "update orders set payState=1 where id =?";
+		QueryRunner qr = new QueryRunner(C3P0Utils.dataSource);
+		try {
+			qr.update(sql, id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 }

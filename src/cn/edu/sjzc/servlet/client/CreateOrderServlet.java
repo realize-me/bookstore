@@ -75,7 +75,8 @@ public class CreateOrderServlet extends HttpServlet {
 		os.addOrder(order);
 		
 		// 定向到创建订单成功页面
-		RequestDispatcher rd = request.getRequestDispatcher("/client/createOrderSuccess.jsp");
+		request.setAttribute("order", order);
+		RequestDispatcher rd = request.getRequestDispatcher("/client/order_confirm.jsp");
 		rd.forward(request, response);
 		
 	}

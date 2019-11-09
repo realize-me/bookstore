@@ -61,7 +61,7 @@ public class RegisterServlet extends HttpServlet {
 		}
 		
 		// 转到注册成功页面
-		RequestDispatcher rd = request.getRequestDispatcher("/client/register_success.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/client/login.jsp");
 		rd.forward(request, response);
 		
 		

@@ -25,12 +25,18 @@ public class FindOrderByIdServlet extends HttpServlet {
 		OrderService os = new OrderService();
 		OrderBean orderBean = os.findOrderBeanById(id);
 		
-
-		
 		request.setAttribute("orderBean", orderBean);
 
+		// 客户查看自己的订单
+		if (type!=null){
+			RequestDispatcher rd = request.getRequestDispatcher("/client/myaccount_order.jsp");
+			rd.forward(request, response);
+			return;
+		}
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/manager/order_view.jsp");
 		rd.forward(request, response);
+		return;
 		
 	}
 

@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<div id="divcontent">
 		<table width="900px" border="0" cellspacing="0">
 			<tr>
 			<td width="497">
-				<img src="images/billboard.gif" width="497" height="38" />
+				<img src="/bookstore/client/images/billboard.gif" width="497" height="38" />
 				<table cellspacing="0" class="ctl">
 					<tr>
 						<td width="485" height="29" style="margin-left: 20px;">
@@ -47,18 +48,18 @@
 				<table width="100%" border="0" cellspacing="0">
 					<tr>
 						<td>
-							<img src="images/hottitle.gif" width="126" height="29" />
+							<img src="/bookstore/client/images/hottitle.gif" width="126" height="29" />
 						</td>
 					</tr>
 				</table>
+				
 				<table width="100%" border="0" cellspacing="0">
 					<tr>
-						<td style="width: 80; text-align: center;">
-							<a href="#"><img src="bookcover/105.jpg" width="102" height="130" border="0"></a>
-						</td>
-						<td style="width: 80; text-align: center;">
-							<a href="#"><img src="bookcover/106.jpg" width="102" height="130" border="0"></a>
-						</td>
+						<c:forEach items="${products }" var="p">
+							<td style="width: 80; text-align: center;">
+								<a href="/bookstore/FindProductById?id=${p.id }"><img src="${p.imgurl }" width="102" height="130" border="0"></a>
+							</td>
+						</c:forEach>
 					</tr>
 				</table>
 			</td>

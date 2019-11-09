@@ -1,0 +1,44 @@
+@CHARSET "UTF-8";
+
+.menu_a {
+	font-weight: bold;
+	font-size: 16px;
+	color:#fcfdef;
+}
+
+a.menu_a:ACTIVE {
+	color: #cccccc;
+}
+
+.menu_a:VISITED {
+	color: #fcfdef;
+}
+
+#my_info:HOVER {
+	color: #fcfdef;
+}
+
+#my_info:hover .menu_child {
+	display: block;
+}
+
+#menu_child_parent {
+	position: relative;
+	right: 10px;
+}
+
+#my_info:hover {
+	padding-bottom: 100px;
+}
+
+.menu_child {
+	display: none;
+	position: absolute;
+	background-color: #f59f1d;
+	width: 100px;
+	margin-top: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 5px;
+}
+}

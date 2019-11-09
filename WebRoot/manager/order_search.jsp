@@ -10,8 +10,8 @@
 <form action="/bookstore/FindOrderByCondition" method="post" target="order_list">
 	<table>
 		<tr>
-			<td>用户id</td>
-			<td><input type="text" name="id"></td>
+			<td>用户名</td>
+			<td><input type="text" name="username"></td>
 			<td><input type="submit" value="查询"></td>
 		</tr>
 	</table>	

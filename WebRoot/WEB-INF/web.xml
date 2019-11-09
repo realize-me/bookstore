@@ -160,6 +160,57 @@
     <servlet-name>ModifyNoticeServlet</servlet-name>
     <servlet-class>cn.edu.sjzc.servlet.manager.ModifyNoticeServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetWeekHotProduct</servlet-name>
+    <servlet-class>cn.edu.sjzc.servlet.client.GetWeekHotProduct</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ShowMyAccount</servlet-name>
+    <servlet-class>cn.edu.sjzc.servlet.client.ShowMyAccount</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ModifyUserServlet</servlet-name>
+    <servlet-class>cn.edu.sjzc.servlet.client.ModifyUserServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ModifyUserPassword</servlet-name>
+    <servlet-class>cn.edu.sjzc.servlet.client.ModifyUserPassword</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>cn.edu.sjzc.servlet.client.LogoutServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ShowMyOrderList</servlet-name>
+    <servlet-class>cn.edu.sjzc.servlet.client.ShowMyOrderList</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ConfirmOrderServlet</servlet-name>
+    <servlet-class>cn.edu.sjzc.servlet.client.ConfirmOrderServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
 
 
 
@@ -271,6 +322,35 @@
   <servlet-mapping>
     <servlet-name>ModifyNoticeServlet</servlet-name>
     <url-pattern>/ModifyNoticeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetWeekHotProduct</servlet-name>
+    <url-pattern>/GetWeekHotProduct</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShowMyAccount</servlet-name>
+    <url-pattern>/ShowMyAccount</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModifyUserServlet</servlet-name>
+    <url-pattern>/ModifyUserServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModifyUserPassword</servlet-name>
+    <url-pattern>/ModifyUserPassword</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ShowMyOrderList</servlet-name>
+    <url-pattern>/ShowMyOrderList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ConfirmOrderServlet</servlet-name>
+    <url-pattern>/ConfirmOrderServlet</url-pattern>
   </servlet-mapping>
 
 

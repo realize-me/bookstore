@@ -3,9 +3,9 @@
 <html>
 <head>
 	<title>传智书城首页</title>
-	<link type="text/css" rel="stylesheet" href="css/main.css" />
-	<link type="text/css" rel="stylesheet" href="css/autoplay.css" />
-	<script type="text/javascript" src="js/autoplay.js"></script>
+	<link type="text/css" rel="stylesheet" href="/bookstore/client/css/main.css" />
+	<link type="text/css" rel="stylesheet" href="/bookstore/client/css/autoplay.css" />
+	<script type="text/javascript" src="/bookstore/client/js/autoplay.js"></script>
 </head>
 <body class="main">
 <div style="width: 1500px;margin:0 auto;">
@@ -17,10 +17,10 @@
 	<div id="box_autoplay">
 		<div class="list">
 			<ul>
-				<li><img src="ad/index_ad0.jpg" width="900" height="335" /></li>
-				<li><img src="ad/index_ad1.jpg" width="900" height="335" /></li>
-				<li><img src="ad/index_ad2.jpg" width="900" height="335" /></li>
-				<li><img src="ad/index_ad3.jpg" width="900" height="335" /></li>
+				<li><img src="/bookstore/client/ad/index_ad0.jpg" width="900" height="335" /></li>
+				<li><img src="/bookstore/client/ad/index_ad1.jpg" width="900" height="335" /></li>
+				<li><img src="/bookstore/client/ad/index_ad2.jpg" width="900" height="335" /></li>
+				<li><img src="/bookstore/client/ad/index_ad3.jpg" width="900" height="335" /></li>
 			</ul>
 		</div>
 	</div>

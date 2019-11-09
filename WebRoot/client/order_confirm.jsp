@@ -4,14 +4,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>创建订单</title>
+<title>确认订单</title>
 <link rel="stylesheet" type="text/css" href="/bookstore/client/css/main.css">
-<script type="text/javascript" src="/bookstore/client/js/order.js"></script>
 </head>
 <body>
-	<div style="width: 1500px;margin:0 auto;">
+<div style="width: 1500px;margin:0 auto;">
 <%@ include file="head.jsp" %>
 <%@ include file="menu_search.jsp" %>
 <!-- 订单部分 -->
@@ -24,17 +22,24 @@
 					&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="${pageContext.request.contextPath}/client/cart.jsp">购物车</a>
 					&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="${pageContext.request.contextPath}/client/order.jsp">创建订单</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;
 					创建订单
 				</div>
-				<form id="orderForm" action="/bookstore/CreateOrderServlet" method="post">
 					<table cellpadding="0" class="infocontent">
 						<tr>
 							<td style="text-align: center;">
+							
+							
+							
+							
+							
+							
 								<img src="${pageContext.request.contextPath}/client/ad/page_ad.jpg" width="100%" height="89" />
 								<table width="100%" border="0" cellpadding="0">
 									<tr>
 										<td>
-											<img src="/bookstore/client/images/buy2.gif" width="635" height="38" />
+											<img src="/bookstore/client/images/buy3.gif" width="635" height="38" />
 											<p>您好，欢迎来到网上书城结算中心</p>
 										</td>
 									</tr>
@@ -85,24 +90,21 @@
 												<tr>
 													<td>收货地址：</td>
 													<td>
-														<input type="text" name="receiverAddress" value="" style="width: 350px;" />
-														<span id="receiverAddressMsg"></span>
+														${order.receiverAddress}
 													</td>
 												</tr>
 
 												<tr>
 													<td>收货人：</td>
 													<td>
-														<input type="text" name="receiverName" value="${user.username}" style="width: 150px;" />
-														<span id="receiverNameMsg"></span>
+														${order.receiverName}
 													</td>
 												</tr>
 												
 												<tr>
 													<td>联系方式：</td>
 													<td>
-														<input type="text" name="receiverPhone" value="${user.telephone}" style="width:150px;">
-														<span id="receiverPhoneMsg"></span>
+														${order.receiverPhone}
 													</td>
 												</tr>
 
@@ -110,15 +112,31 @@
 
 											<hr />
 											<div align="right">
-												<img src="/bookstore/client/images/gif53_029.gif" width="204" height="51" onclick="checkOnSubmit();" />	
+												
+												
+												<a href="/bookstore/ConfirmOrderServlet?id=${order.id }"><img src="/bookstore/client/images/finalbutton.gif" width="204" height="51" onclick="window.alert('购买商品成功')"/></a>
+												
+												
 											</div>
 										</td>
 									</tr>
 								</table>
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
 							</td>
 						</tr>
 					</table>
-				</form>	
+					
+					
 			</td>
 		</tr>
 	</table>

@@ -2,6 +2,7 @@ package cn.edu.sjzc.servlet.client;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.edu.sjzc.domin.Notice;
+import cn.edu.sjzc.domin.Product;
 import cn.edu.sjzc.service.NoticeService;
+import cn.edu.sjzc.service.ProductService;
 
 public class GetAnnounce extends HttpServlet {
 
@@ -25,6 +28,16 @@ public class GetAnnounce extends HttpServlet {
 		String type = request.getParameter("type");
 		
 		if (type==null){
+			
+			// 获取本周热卖
+			ProductService ps = new ProductService();
+			List<Product> products = ps.getWeekHotProduct();
+			
+			
+			
+			
+			request.setAttribute("products", products);
+			// 转到公告和热卖页面
 			RequestDispatcher rd = request.getRequestDispatcher("/client/announce_hot.jsp");
 			rd.include(request, response);
 			return;

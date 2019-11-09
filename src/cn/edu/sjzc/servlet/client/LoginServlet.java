@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,9 +20,26 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+
+		// 重复登陆
+		HttpSession hs = request.getSession();
+		User user = (User) hs.getAttribute("user");
+		if (user!=null){
+			// 已经登陆
+			request.setAttribute("error", "您已登录，请不要重复登陆");
+			request.setAttribute("username", username);
+			request.setAttribute("password", password);
+			RequestDispatcher rd = request.getRequestDispatcher("/client/login.jsp");
+			rd.forward(request, response);
+			return;
+			
+		}
 		
+
+		
+		// 检验密码
 		UserService us = new UserService();
-		User user = us.login(username, password);
+		user = us.login(username, password);
 		
 		if (user==null){
 			
@@ -34,11 +52,41 @@ public class LoginServlet extends HttpServlet {
 			return;
 		}
 		
-		HttpSession hs = request.getSession();
+		// 记住用户名和自动登陆
+		String[] checkbox = request.getParameterValues("checkbox");
+		Cookie cookie1 = new Cookie("username", username);
+		Cookie cookie2 = new Cookie("password", password);
+		if (checkbox!=null){
+			for(String chek:checkbox){
+				
+				if (chek.equals("checkbox01")){
+				//  记住用户名
+					cookie1.setMaxAge(999999999);
+					response.addCookie(cookie1);
+					
+				}else if(chek.equals("checkbox02")){
+					// 自动登陆
+					cookie1.setMaxAge(999999999);
+					cookie2.setMaxAge(999999999);
+					response.addCookie(cookie1);
+					response.addCookie(cookie2);
+				}
+				
+			}
+		}else{
+			// 清除cookie
+			cookie1.setMaxAge(0);
+			cookie2.setMaxAge(0);
+			response.addCookie(cookie1);
+			response.addCookie(cookie2);
+		}
+		
+		
+		
+		
+		// 用户名和密码正确转到主页
 		hs.setAttribute("user", user);
-
-
-		RequestDispatcher rd = request.getRequestDispatcher("/client/login_success.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/client/index.jsp");
 		rd.forward(request, response);
 		return;
 		

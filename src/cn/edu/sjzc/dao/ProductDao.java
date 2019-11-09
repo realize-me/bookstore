@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.enterprise.inject.New;
+
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -280,5 +282,43 @@ String sql = "select * from products where 1=1";
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * 
+	 * @return 本周最热卖的两本书的的id
+	 */
+	public List<String> getHotProductId(){
+		List<String> product_ids=new ArrayList<String>();
+		
+		String sql = "select product_id from ("+
+						"	select product_id,sum(buynum) sum_buynum from ("+
+						"		select * from ("+
+						"			select orderitem.*,orders.orderTime from orders,orderitem where orders.id=orderitem.order_id"+
+						"		)a where orderTime<=now() and orderTime>=date_sub(sysdate(),interval 7 day)"+
+						"	)b group by product_id order by sum_buynum desc"+
+						")c limit 0,2";
+		
+		Connection conn = C3P0Utils.getConnection();
+		
+		try {
+			PreparedStatement preStat = conn.prepareStatement(sql);
+			
+			ResultSet rs = preStat.executeQuery();
+			
+			while (rs.next()){
+				product_ids.add(rs.getString("product_id"));
+			}
+			
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+		return product_ids;
 	}
 }

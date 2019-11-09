@@ -11,6 +11,7 @@ import javax.sql.DataSource;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 
+import cn.edu.sjzc.domin.UpdateUserBean;
 import cn.edu.sjzc.domin.User;
 import cn.edu.sjzc.utils.C3P0Utils;
 
@@ -91,5 +92,58 @@ public class UserDao {
 			e.printStackTrace();
 		}
 		return user;
+	}
+	// 更新用户信息
+	public void updateUserByUpdateUserBean(UpdateUserBean uub){
+		String sql = "update user set username=?,gender=?,email=?,telephone=?,introduce=? where id=?";
+		Object[] params = {
+				uub.getUsername(),
+				uub.getGender(),
+				uub.getEmail(),
+				uub.getTelephone(),
+				uub.getIntroduce(),
+				uub.getId()
+		};
+		
+		QueryRunner qr = new QueryRunner(C3P0Utils.dataSource);
+		try {
+			qr.update(sql, params);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	// 根据id查询用户
+	public User findUserById(int id){
+		String sql = "select * from user where id =?";
+		QueryRunner qr = new QueryRunner(C3P0Utils.dataSource);
+		User user = null;
+		
+		try {
+			user = qr.query(sql, id, new BeanHandler(User.class));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return user;
+	}
+	// 根据用户id更新用户密码
+	public void updateUserPasswordById(int id,String password){
+		String sql = "update user set password = ? where id = ?";
+		
+		Object[] params = {
+				password,
+				id
+		};
+		QueryRunner qr = new QueryRunner(C3P0Utils.dataSource);
+		try {
+			qr.update(sql, params);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 }

@@ -73,4 +73,19 @@ public class ProductService {
 		ProductDao pd = new ProductDao();
 		pd.deleteProductById(id);
 	}
+	
+	
+	// 获取本周最热卖的两本书
+	public List<Product> getWeekHotProduct(){
+		ProductDao pd = new ProductDao();
+		List<String> product_ids = pd.getHotProductId();
+		
+		List<Product> products = new ArrayList<Product>();
+		
+		for(String id:product_ids){
+			products.add(pd.findProductById(id));
+		}
+		
+		return products;
+	}
 }

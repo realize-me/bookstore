@@ -58,9 +58,13 @@ public class UserFormBean {
 			errors.put("genderMsg", "必须选择性别");
 		}
 		
+		String url = "^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*\\.[a-zA-Z0-9]{2,6}$";
 		if (email==null || email.equals("")){
 			flag=false;
 			errors.put("emailMsg", "必须填写邮箱地址");
+		}else if (!email.matches(url)){
+			flag=false;
+			errors.put("emailMsg", "邮箱格式错误");
 		}
 		
 		if (telephone==null || telephone.equals("")){

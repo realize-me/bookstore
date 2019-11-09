@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>商品列表</title>
 <link rel="stylesheet" type="text/css" href="/bookstore/client/css/main.css" />
 <script type="text/javascript">
 	function jumpPage(){
@@ -60,7 +60,7 @@
 					<tr>
 						<td>
 							
-	
+								<img width="100%" src="/bookstore/client/images/productlist.gif">
 									
 
 									
@@ -94,10 +94,14 @@
 													<td>${product.description}</td>
 												</tr>
 												<tr>
-													<td colspan="2">
+													<td>
 														<a href="/bookstore/AddCartServlet?id=${product.id}">加入购物车</a>
 													</td>
+													<td>
+														<a href="/bookstore/FindProductById?id=${product.id }">查看商品详细</a>
+													</td>
 												</tr>
+												
 											</table>
 											<hr />
 									</c:forEach>									
@@ -117,7 +121,7 @@
 										<c:when test="<%=totalNum>0 %>">
 											<div align="center">
 												<!-- 上一页 -->
-												<a href="/bookstore/ShowProductByPage?currentPage=<%=pageIndex==1?1:pageIndex-1 %>&category=<%=category!=null?category:""%>">上一页</a>
+												<a href="/bookstore/ShowProductByPage?currentPage=<%=pageIndex==1?1:pageIndex-1 %>&category=<%=category!=null?category:""%>"><img src="/bookstore/client/images/previous_page.png"></a>
 												
 												<!-- 第1页 -->
 												<c:if test="<%=pageIndex!=1 %>">
@@ -126,7 +130,7 @@
 												
 		
 												<!-- 当前页 -->
-												<font color="red"><%=pageIndex %></font>
+												<font color="#f59f1d" size="6px"><%=pageIndex %></font>
 												
 												<!-- 尾页 -->
 												<c:if test="<%=pageIndex!=max_current %>">
@@ -134,7 +138,8 @@
 												</c:if>
 												
 												<!-- 下一页 -->
-												<a href="/bookstore/ShowProductByPage?currentPage=<%=pageIndex==max_current?max_current:pageIndex+1 %>&category=<%=category!=null?category:""%>">下一页</a>
+												<a href="/bookstore/ShowProductByPage?currentPage=<%=pageIndex==max_current?max_current:pageIndex+1 %>&category=<%=category!=null?category:""%>"><img src="/bookstore/client/images/next_page.png"></a>
+												
 												
 												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;到<input type="text" id="goToPageIndex" style="width: 20px;"/>页，
 

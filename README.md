@@ -41,7 +41,7 @@ CREATE DATABASE itcast_bookstore;
      `id` varchar(100) NOT NULL,
      `name` varchar(40) DEFAULT NULL,
      `price` double DEFAULT NULL,
-     `categoy` varchar(40) DEFAULT NULL,
+     `category` varchar(40) DEFAULT NULL,
      `pnum` int(11) DEFAULT NULL,
      `imgurl` varchar(100) DEFAULT NULL,
      `description` varchar(255) DEFAULT NULL,
